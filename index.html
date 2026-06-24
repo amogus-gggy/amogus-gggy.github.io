@@ -284,6 +284,17 @@
             z-index: 1;
         }
 
+        .project-card h3 a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-card h3 a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+
         .project-card .status {
             display: inline-block;
             padding: 5px 15px;
@@ -309,6 +320,24 @@
 
         .project-card .features li:last-child {
             border-bottom: none;
+        }
+
+        .project-card .github-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card .github-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
         }
 
         /* GitHub Stats */
@@ -438,24 +467,10 @@
             z-index: 9999;
             transition: width 0.1s ease;
         }
-
-        /* Cursor Effect */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.1s ease;
-            opacity: 0.5;
-        }
     </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
-    <div class="cursor" id="cursor"></div>
 
     <div class="bg-animation">
         <span></span>
@@ -505,7 +520,7 @@
         <h2 class="section-title">📂 Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>PyLockWare SDK</h3>
+                <h3><a href="https://github.com/amogus-gggy/PyLockWare" target="_blank">PyLockWare SDK</a></h3>
                 <p><strong>Python 3 AST Obfuscator</strong></p>
                 <ul class="features">
                     <li>🔒 Anti-analysis techniques</li>
@@ -513,9 +528,10 @@
                     <li>🎭 Expression obfuscation</li>
                     <li>⚡ Expression virtualization</li>
                 </ul>
+                <a href="https://github.com/amogus-gggy/PyLockWare" target="_blank" class="github-link">🔗 View on GitHub</a>
             </div>
             <div class="project-card">
-                <h3>AltAPI</h3>
+                <h3><a href="https://github.com/amogus-gggy/AltAPI" target="_blank">AltAPI</a></h3>
                 <p><strong>High-Performance ASGI Backend Framework</strong></p>
                 <span class="status">⏸️ On Hold</span>
                 <ul class="features">
@@ -523,9 +539,10 @@
                     <li>Modern Python framework</li>
                     <li>ASGI compliant</li>
                 </ul>
+                <a href="https://github.com/amogus-gggy/AltAPI" target="_blank" class="github-link">🔗 View on GitHub</a>
             </div>
             <div class="project-card">
-                <h3>Telecommunicator</h3>
+                <h3><a href="https://github.com/amogus-gggy/telecommunicator" target="_blank">Telecommunicator</a></h3>
                 <p><strong>Self-Hosted E2EE Messenger</strong></p>
                 <span class="status">⏸️ On Hold</span>
                 <ul class="features">
@@ -533,6 +550,7 @@
                     <li>FastAPI backend</li>
                     <li>Flet frontend</li>
                 </ul>
+                <a href="https://github.com/amogus-gggy/telecommunicator" target="_blank" class="github-link">🔗 View on GitHub</a>
             </div>
         </div>
     </section>
@@ -555,13 +573,6 @@
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById("progressBar").style.width = scrolled + "%";
-        });
-
-        // Custom Cursor
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top = e.clientY - 10 + 'px';
         });
 
         // Intersection Observer for animations
@@ -616,4 +627,3 @@
     </script>
 </body>
 </html>
-  
